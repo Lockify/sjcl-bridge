@@ -22,8 +22,6 @@ lockify.sjclBridge.decrypt = {
                 newHmac.update(ciphertext.slice(offset, offset + size));
                 offset = offset + size;
             }
-            // Workaround: idempotence problem? Call digest twice.
-            newHmacString = sjcl.codec.base64.fromBits(newHmac.digest());
             newHmacString = sjcl.codec.base64.fromBits(newHmac.digest());
         }
         return (hmacString === newHmacString);
